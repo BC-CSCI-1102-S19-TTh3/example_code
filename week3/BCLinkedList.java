@@ -47,6 +47,7 @@ public class BCLinkedList implements BCList {
     Node n = first;
     while (counter < i) {
       n = n.next;
+      counter++;
     }
     return n.item;
   }
@@ -64,6 +65,7 @@ public class BCLinkedList implements BCList {
     Node n = first;
     while (counter < i) {
       n = n.next;
+      counter++;
     }
     String returnme = n.item;
     n.next = n.next.next;
@@ -92,7 +94,7 @@ public class BCLinkedList implements BCList {
   // The client (i.e., the main method in this case) does not need to
   // know that the implementation of BCLinkedLIst and BCArrayList are totally different.
   public static void main (String[] args) {
-    BCArrayList bcal = new BCArrayList();
+    BCLinkedList bcal = new BCLinkedList();
     bcal.add("dog");
     bcal.add("fish");
     bcal.add("coffee");
