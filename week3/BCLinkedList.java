@@ -69,6 +69,7 @@ public class BCLinkedList implements BCList {
     }
     String returnme = n.item;
     n.next = n.next.next;
+    size--;
     return returnme;
   }
 
