@@ -18,12 +18,17 @@ public class QueueClassWithTail<T> implements Queue<T> {
   public void enqueue(T item) {
     Node n = new Node();
     n.data = item;
-    if (isEmpty()) {
-      front = n;
-      tail = n;
-    } else {
-      tail.next = n;
-      tail = n;
+
+    // if the queue is empty, both front and tail
+    // will point at the new node
+    if (this.isEmpty()) {
+      this.front = n;
+      this.tail = n;
+    }
+    // otherwise, only tail needs to be reassigned
+    else {
+      this.tail.next = n;
+      this.tail = n;
     }
     size++;
   }
@@ -33,7 +38,12 @@ public class QueueClassWithTail<T> implements Queue<T> {
     if (this.isEmpty()) {
       return null;
     }
+    // When size == 1, you need to make sure that
+    // front and tail both end up pointing at null.
     T returnme = front.data;
+    if (this.size == 1) {
+      tail = null;
+    }
     front = front.next;
     size--;
     return returnme;
