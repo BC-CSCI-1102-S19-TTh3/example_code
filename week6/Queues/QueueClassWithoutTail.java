@@ -13,6 +13,11 @@ public class QueueClassWithoutTail<T> implements Queue<T> {
     Node next;
   }
 
+  QueueClassWithoutTail() {
+      this.size = 0;
+      this.front = null;
+  }
+
   // add something to the end of the queue
   public void enqueue(T item) {
     Node n = new Node();
@@ -20,11 +25,9 @@ public class QueueClassWithoutTail<T> implements Queue<T> {
     if (isEmpty()) {
       front = n;
     } else {
-      // Since you don't have a tail pointer,
+
       // you have to traverse the LL until you gets
       // to a node whose next pointer is null.
-      // This means you've reached the last element in
-      // the queue, so you can add your new element there.
       Node traverse = front;
       while (traverse.next != null) {
         traverse = traverse.next;

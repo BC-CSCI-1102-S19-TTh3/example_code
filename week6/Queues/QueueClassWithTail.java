@@ -21,15 +21,14 @@ public class QueueClassWithTail<T> implements Queue<T> {
 
     // if the queue is empty, both front and tail
     // will point at the new node
-    if (this.isEmpty()) {
-      this.front = n;
-      this.tail = n;
+    if (isEmpty()) {
+      front = n;
     }
     // otherwise, only tail needs to be reassigned
     else {
-      this.tail.next = n;
-      this.tail = n;
+      tail.next = n;
     }
+    tail = n;
     size++;
   }
 
