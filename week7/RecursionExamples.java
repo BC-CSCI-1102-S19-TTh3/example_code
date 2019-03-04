@@ -1,4 +1,4 @@
-public class ReverseArray {
+public class RecursionExamples {
 
   // recursive method to reverse a string
   public static String reverse (String a) {
